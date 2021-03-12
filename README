@@ -1,7 +1,23 @@
+This python script is written to support crystolographical data screening for poly-state structures.
 The folder contains two main python files for color-coded data analysis.
 - Ellipsoid.py generates the dendrogram and coordinate variation ellipsoid
 - Cellcluster.py generates scatter plot for cell-based cluster visuallization
 
-The files: cctable.dat, CLUSTERS.txt, manual_coordinate_146.txt are inputs of ellipsoid.py. Here we use height cutoff at 1.0 to get the output of the paper
-The files: cell_base.cvs is the input of cellcluster.py
-The program runs with python 3.8
+The scripts take some of outputs from Kamo (https://github.com/keitaroyam/yamtbx/blob/master/doc/kamo-en.md) for further analysis.
+
+Requirement:
+- Python 3.8
+- Matplotlib (https://matplotlib.org/)
+- Numpy (https://numpy.org/)
+- Sklearn (https://scikit-learn.org/stable/)
+- Scipy (https://www.scipy.org/)
+- Pandas (https://pandas.pydata.org/)
+How to run:
+- python ellipsoid.py cctable.dat manual_coordinate_146.txt CLUSTERS.txt 1.0
+    #argv[1]: cctable.dat from Kamo outputs
+	#argv[2]: file contains coordinates of a specific residue of all structures
+	#argv[3]: CLUSTERS.txt from Kamo outputs
+	#argv[4]: height cutoff
+    Output will be Figure_5 and Figure_8
+- python cellcluster.py cell_base.cvs
+    Output will be Figure_6
